@@ -1,0 +1,40 @@
+.header_main{
+   height: 4rem;
+}
+.header_title_text{
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+#search_bar_main{
+    width: 30rem;
+}
+.cart_icon{
+    width: 5rem;
+}
+
+@media screen and (max-width:768px) {
+    #search_bar_main{
+        width: 25rem;
+    }
+}
+@media screen and (max-width:575px) {
+    #search_bar_main{
+        width: 20rem;
+    }
+    .header_main{
+        gap: 1rem;
+    }
+    .header_title_text{
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width:605px) {
+     .link{
+        width:4rem;
+     }
+     .header_title_text {
+        font-size: 1rem;
+        margin-right: 1rem;
+}
+}

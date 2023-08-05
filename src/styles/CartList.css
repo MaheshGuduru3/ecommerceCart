@@ -1,0 +1,29 @@
+.leftpart_cartlist{
+      width: 65rem;
+}
+.rightpart_cartlist{
+    width: 30rem;
+}
+
+
+
+@media screen  and (max-width:770px){
+    .cart{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+    }
+    .leftpart_cartlist{
+        width: 100%;
+    }
+    .rightpart_cartlist{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .box_cart{
+        width: 90%;
+    }
+}

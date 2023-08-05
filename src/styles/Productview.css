@@ -1,0 +1,48 @@
+.left_part{
+   width: 20rem;
+}
+.right_part{
+    width: 75rem;
+}
+#card-main{
+    width: 15rem;
+    height: 17rem;
+}
+#card-img{
+    height: 10rem;
+}
+#selected{
+    background-color: cadetblue;
+    color: white;
+}
+@media  screen and (max-width:1400px) {
+      #cols{
+         gap: 2rem;
+      }
+}
+@media  screen and (max-width:1200px) {
+    #cols{
+       gap: 0rem;
+    }
+}
+
+@media  screen and (max-width:998px) {
+    .left_part{
+        width: 30rem;
+    }
+}
+@media  screen and (max-width:768px) {
+    .left_part{
+       width: 0rem;
+       display: none;
+    }
+   
+}
+@media  screen and (max-width:576px) {
+    #card-main{
+        width: 100%;
+    }
+    #card-img{
+        width: 100%;
+    }
+}

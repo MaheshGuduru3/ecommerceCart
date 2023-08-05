@@ -1,0 +1,54 @@
+import React, { useEffect, useState } from 'react'
+import '../styles/Header.css'
+import {NavLink , Outlet} from 'react-router-dom'
+import { useSelector , useDispatch } from 'react-redux'
+import { fetchSearchBar } from '../features/ProductSlice'
+
+const Header = () => {
+  const pro1 = useSelector( state => state.productlist )
+  const dispatch = useDispatch()
+  const [searching, setSearching] = useState("")
+  
+  const searchBarHandler = ()=>{
+       dispatch(fetchSearchBar(searching))
+       console.log(searching)
+  }
+ 
+
+
+ 
+  useEffect(()=>{
+  
+  },[searching])            
+  return ( 
+    <div className='container-fluid m-0 p-0'>   
+       <header className='container-fluid p-0 m-0 bg-primary'>
+            <div className='header_main container-fluid d-flex align-items-center justify-content-between px-3'>  
+                
+                <div className='header_title'>
+                    <h5 className='header_title_text'>MiniCart</h5>
+                </div>
+                <div className='input-group' id='search_bar_main'>
+                    <input type='search' list='dropList'  placeholder='Search...' className='form-control' value={searching} onKeyDown={(e)=>{if(e.key === "Enter"){searchBarHandler()}}} onChange={(e)=>setSearching(e.target.value)}/>
+
+                    <button className='btn btn-secondary' onClick={searchBarHandler} ><i className='bi bi-search'></i></button>
+                    <datalist id="dropList" style={{backgroundColor:"red"}}>
+                        {  pro1.productsList.products?.map((it)=>(
+                          <option value={it.title} key={it.id}> {it.title} </option>
+                        ))}  
+                    </datalist> 
+                  
+                </div>
+                <div className='cart_icon'>
+                    <NavLink to='/cartlist' className='btn link'>
+                       <span style={{color:'white'}}><i className='bi bi-cart3 fs-5'></i> <sup className='fs-6'>{pro1.cartProductList.length?pro1.cartProductList.length:""}</sup></span>
+                    </NavLink>
+                </div>
+            </div>
+       </header>
+       <Outlet />
+    </div>
+  )
+}
+
+export default Header
