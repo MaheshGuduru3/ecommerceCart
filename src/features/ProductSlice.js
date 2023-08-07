@@ -5,28 +5,28 @@ const initialState = {
     productsList : [],
     loading:false,
     error:false,
-    cartProductList:[], 
-    count : 1 
+    cartProductList:  [], 
+
 }
   
 export const fetchProducts = createAsyncThunk('fetch/productlist', async ()=>{
-     const result = await axios.get('https://dummyjson.com/products')
+     const result = await axios.get(process.env.REACT_APP_FETCHPRODUCTS)
      return result.data
 })
    
 export const fetchCartList = createAsyncThunk('fetch/cartlist' , async (userid)=>{
-     const result = await axios.get('https://dummyjson.com/products/'  + userid)
+     const result = await axios.get( process.env.REACT_APP_FETCHCARTLIST  + userid)
      return result.data
 })
 
 
 export const fetchSearchBar = createAsyncThunk('fetch/searchbar' , async (catergory)=>{
-      const result = await axios.get("https://dummyjson.com/products/search?q=" + catergory)
+      const result = await axios.get( process.env.REACT_APP_FETCHSEARCHBAR + catergory)
       return result.data
 })   
 
 export const fetchFilter = createAsyncThunk('fetch/filter' , async (name)=>{
-     const result = await axios.get("https://dummyjson.com/products/category/" + name)
+     const result = await axios.get( process.env.REACT_APP_FETCHFILTER + name)
      return result.data
 })
 
@@ -37,7 +37,6 @@ const ProductSlice = createSlice({
            filterPart : (state, action)=>{
               state.cartProductList = action.payload
            },
-          
      },
      extraReducers:(builder)=>{
          builder 
@@ -60,6 +59,7 @@ const ProductSlice = createSlice({
                  state.cartProductList = [...state.cartProductList , action.payload]
                  state.loading = false
                  state.error = false
+                // localStorage.setItem('cartProductList' , JSON.stringify(state.cartProductList))
          })
          .addCase(fetchCartList.rejected , (state,action)=>{
                 state.error = true

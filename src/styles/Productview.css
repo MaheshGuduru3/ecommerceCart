@@ -1,15 +1,18 @@
+.product-main{
+    height: 42rem;
+}
 .left_part{
    width: 20rem;
 }
 .right_part{
-    width: 75rem;
+    width: 70rem;
 }
 #card-main{
     width: 15rem;
-    height: 17rem;
+    height: 15rem;
 }
 #card-img{
-    height: 10rem;
+    height: 8rem;
 }
 #selected{
     background-color: cadetblue;

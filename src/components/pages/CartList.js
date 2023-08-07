@@ -33,8 +33,8 @@ const CartList = () => {
                                  { pro1.cartProductList.slice((page1)*3-3,page1*3).map((itm)=>(
 
                                     <div className='col-12 col-md-10 g-2' id='box_cart'>
-                                      <div className='card d-flex flex-row '>
-                                        <img  src={itm.thumbnail}  width='160px' height='160px'/>
+                                      <div className='card' id='mobile-cart'>
+                                        <img  src={itm.thumbnail}  width='160px' height='160px' id='mobile-cart-img'/>
                                         <div className='card-body d-flex flex-row justify-content-between align-items-center'>
                                           <div className='card-title'>
                                               <p className='mb-0'>{itm.title}</p>

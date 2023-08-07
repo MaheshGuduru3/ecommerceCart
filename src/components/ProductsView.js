@@ -29,7 +29,7 @@ const ProductsView = () => {
  
   
   return (    
-    <div className='container-fluid p-0'>                
+    <div className='container-fluid p-0 product-main'>                
              <div className='container-fluid p-0'>          
                  <div className='container p-0 d-flex'>
                       <div className='left_part'> 
@@ -78,6 +78,12 @@ const ProductsView = () => {
                                   <input className="form-check-input" type="radio" name="radioname"  id="radiobox7" />
                                   <label className="form-check-label" for="radiobox7">
                                     womens-jewellery 
+                                  </label>
+                                </div>
+                                <div className="form-check">
+                                  <input className="form-check-input" type="radio" name="radioname"  id="radiobox7" />
+                                  <label className="form-check-label" for="radiobox7">
+                                    labtop
                                   </label>
                                 </div>
                                 <button className='btn btn-danger' onClick={(e)=>{window.location.reload()}}>clearFilter</button>
@@ -161,6 +167,17 @@ const ProductsView = () => {
                                       </div>
                                   ))
                                   }
+
+                                  <div>
+                                    {
+                                       pro.productsList.products?.length === 0 && <>
+                                       
+                                         <div className='alert alert-light'>
+                                          No Data is Found
+                                         </div>
+                                       </>
+                                    }
+                                  </div>
 
                                   <div className='container d-flex flex-row justify-content-center mt-1'>
                                   <nav aria-label="Page navigation example">

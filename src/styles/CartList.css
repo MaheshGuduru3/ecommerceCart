@@ -5,7 +5,10 @@
     width: 30rem;
 }
 
-
+#mobile-cart{
+    display: flex;
+    flex-direction: row;
+}
 
 @media screen  and (max-width:770px){
     .cart{
@@ -25,5 +28,16 @@
 @media screen and (max-width:575px) {
     .box_cart{
         width: 90%;
+    }
+}
+
+@media screen and (max-width:350px) {
+    #mobile-cart-img{
+        width: 100%;
+    }
+  
+    #mobile-cart{
+        display: flex;
+        flex-direction: column;
     }
 }
