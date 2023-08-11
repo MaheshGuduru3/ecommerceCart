@@ -59,7 +59,6 @@ const ProductSlice = createSlice({
                  state.cartProductList = [...state.cartProductList , action.payload]
                  state.loading = false
                  state.error = false
-                // localStorage.setItem('cartProductList' , JSON.stringify(state.cartProductList))
          })
          .addCase(fetchCartList.rejected , (state,action)=>{
                 state.error = true

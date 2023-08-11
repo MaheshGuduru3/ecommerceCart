@@ -8,22 +8,17 @@ const Header = () => {
   const pro1 = useSelector( state => state.productlist )
   const dispatch = useDispatch()
   const [searching, setSearching] = useState("")
-  const [show , setShow] = useState(true)
-  console.log(show , "show")
   const searchBarHandler = ()=>{
        dispatch(fetchSearchBar(searching))
-       console.log(searching)
+      
   }
- 
-//  console.log(pro1.theme , "redux")   
-  
   useEffect(()=>{
     
    
   },[searching])            
   return ( 
     <div className='container-fluid m-0 p-0'>   
-       <header className={show ? 'container-fluid p-0 m-0 bg-primary' : 'container-fluid p-0 m-0 bg-dark'}>
+       <header className='container-fluid p-0 m-0 bg-primary'> 
             <div className='header_main container-fluid d-flex align-items-center justify-content-between'>  
                 
                 <div className='header_title'>
