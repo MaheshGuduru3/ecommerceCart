@@ -41,7 +41,7 @@ const CartList = () => {
                                               <p className='mb-0'>price : {itm.price}</p> 
                                               <p>rating : {itm.rating}</p> 
                                           </div>
-                                        
+                    
                                           <div>
                                             <button className='btn btn-danger' onClick={()=>removeItemsHandler(itm.id)}><i className='bi bi-trash3'></i></button>
                                           </div>

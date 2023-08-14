@@ -22,7 +22,7 @@ const Header = () => {
             <div className='header_main container-fluid d-flex align-items-center justify-content-between'>  
                 
                 <div className='header_title'>
-                    <h4 className='header_title_text'>MiniCart</h4>
+                    <NavLink to='/'><h4 className='header_title_text'>MiniCart</h4></NavLink>
                 </div>
                 <div className='input-group' id='search_bar_main'>
                     <input type='search' list='dropList'  placeholder='Search...' className='form-control' id='search-bar-input' value={searching} onKeyDown={(e)=>{if(e.key === "Enter"){searchBarHandler()}}} onChange={(e)=>setSearching(e.target.value)}/>

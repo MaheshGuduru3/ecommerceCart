@@ -10,11 +10,13 @@ const ProductsView = () => {
   const [catergories , setCatergories] = useState([])  
   const [renderTrue , setRenderTrue] = useState(false)
   const [page , setPage]  = useState(1)
+  
+  
   const removeItemsHandler1 = (id)=>{
     const filter = pro.cartProductList.filter((i)=> i.id != id)
     dispatch(filterPart(filter))
     
-  }
+  }  
   const cartAddHandler = (id)=>{
     dispatch(fetchCartList(id))
   }

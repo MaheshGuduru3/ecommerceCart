@@ -5,7 +5,7 @@ const initialState = {
     productsList : [],
     loading:false,
     error:false,
-    cartProductList:  [], 
+    cartProductList:  localStorage.getItem('cartProductList') ? JSON.parse(localStorage.getItem('cartProductList')) : [], 
 
 }
   
@@ -36,6 +36,7 @@ const ProductSlice = createSlice({
      reducers:{
            filterPart : (state, action)=>{
               state.cartProductList = action.payload
+              localStorage.setItem('cartProductList' , JSON.stringify(state.cartProductList))
            },
      },
      extraReducers:(builder)=>{
@@ -59,6 +60,8 @@ const ProductSlice = createSlice({
                  state.cartProductList = [...state.cartProductList , action.payload]
                  state.loading = false
                  state.error = false
+
+                 localStorage.setItem("cartProductList" , JSON.stringify(state.cartProductList))
          })
          .addCase(fetchCartList.rejected , (state,action)=>{
                 state.error = true
