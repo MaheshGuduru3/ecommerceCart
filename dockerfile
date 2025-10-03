@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the Vite app
-// RUN npm run build
+
 
 # Expose the default Vite preview port
 EXPOSE 4173
