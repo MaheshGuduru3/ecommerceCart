@@ -46,9 +46,15 @@ jobs:
           scanPath: '.'
           format: 'JSON'
           out: 'owasp-report'
+          
       - name: Upload OWASP Report
         uses: actions/upload-artifact@v4
         with:
           name: owasp-dependency-check-report
           path: owasp-report/
+
+
+      - name: Show OWASP Dependency-Check JSON report
+        run: cat owasp-report/dependency-check-report.json
+
 
