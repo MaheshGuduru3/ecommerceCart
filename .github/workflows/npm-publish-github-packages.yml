@@ -16,8 +16,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm install
+      # - name: Install dependencies
+      #   run: npm install
+
+      - name: Run OWASP Dependency-Check
+        uses: dependency-check/Dependency-Check_Action@main
+        with:
+          project: 'My Node.js App'
+          scanPath: '.'
+          format: 'JSON'
+          out: 'owasp-report'
 
       # - name: Run SonarCloud Scan
         # uses: SonarSource/sonarcloud-github-action@v2
@@ -28,33 +36,33 @@ jobs:
           # SONAR_PROJECT_KEY: your-org_your-project
           # SONAR_ORGANIZATION: your-org
 
-      - name: Build Docker Image
-        run: docker build -t my-app:latest .
+      # - name: Build Docker Image
+      #   run: docker build -t my-app:latest .
 
-      - name: Scan Docker image with Trivy
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: my-app:latest
-          format: json
-          exit-code: 0
-          output: trivy-report.json
-          severity: CRITICAL,HIGH,MEDIUM
-      - name: Run OWASP Dependency-Check
-        uses: dependency-check/Dependency-Check_Action@main
-        with:
-          project: 'My Node.js App'
-          scanPath: '.'
-          format: 'JSON'
-          out: 'owasp-report'
+      # - name: Scan Docker image with Trivy
+      #   uses: aquasecurity/trivy-action@master
+      #   with:
+      #     image-ref: my-app:latest
+      #     format: json
+      #     exit-code: 0
+      #     output: trivy-report.json
+      #     severity: CRITICAL,HIGH,MEDIUM
+      # - name: Run OWASP Dependency-Check
+      #   uses: dependency-check/Dependency-Check_Action@main
+      #   with:
+      #     project: 'My Node.js App'
+      #     scanPath: '.'
+      #     format: 'JSON'
+      #     out: 'owasp-report'
           
-      - name: Upload OWASP Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: owasp-dependency-check-report
-          path: owasp-report/
+      # - name: Upload OWASP Report
+        # uses: actions/upload-artifact@v4
+        # with:
+          # name: owasp-dependency-check-report
+          # path: owasp-report/
 
 
-      - name: Show OWASP Dependency-Check JSON report
-        run: cat owasp-report/dependency-check-report.json
+      # - name: Show OWASP Dependency-Check JSON report
+      #   run: cat owasp-report/dependency-check-report.json
 
 
